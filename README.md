@@ -1,56 +1,36 @@
-# 🏦 Online Banking System
+# 🔐 Authentication Module - Online Banking System
 
-A secure and user-friendly web-based Online Banking System developed using PHP, MySQL, HTML, CSS, and JavaScript. The system provides account management, transaction handling, and administrative functionalities with a modern responsive interface.
-
----
+This module implements the user authentication functionality for the Online Banking System. It provides secure user registration, login, session management, and logout features.
 
 ## ✨ Features
 
-### 🔐 Authentication Module
 - User Registration
 - User Login
-- User Logout
-- Session Management
-- Password Hashing and Verification
-
-### 👤 User Dashboard
-- Profile Information
-- Balance Overview
-- Responsive UI
-- Dark/Light Mode
-
-### 💳 Bank Account Management
-- Create Bank Account
-- Auto Account Number Generation
-- Account Details
-
-### 💰 Transaction Management
-- Deposit Money
-- Withdraw Money
-- Transfer Funds
-- Transaction History
-
-### 📄 Statements
-- Transaction Reports
-- PDF Statements
-
-### 📧 Notifications
-- Email Notifications
-- OTP Verification
-
-### 🛡 Security
 - Password Hashing
-- Session Protection
-- Input Validation
-- SQL Injection Prevention using Prepared Statements
+- Password Verification
+- Session Management
+- Protected Dashboard Access
+- User Logout
+- Responsive User Interface
 
-### ⚙ Admin Panel
-- View Users
-- Manage Accounts
-- View Transactions
-- Activate / Suspend Accounts
+## 📂 Project Structure
 
----
+```text
+OnlineBankingSystem/
+│
+├── connection.php
+├── register.php
+├── register.inc.php
+├── login.php
+├── login.inc.php
+├── dashboard.php
+├── logout.php
+│
+├── Css/
+│   ├── register.css
+│   ├── login.css
+│   └── dashboard.css
+```
 
 ## 🛠 Technologies Used
 
@@ -60,102 +40,71 @@ A secure and user-friendly web-based Online Banking System developed using PHP, 
 - CSS3
 - JavaScript
 - XAMPP
-- PHPMailer
-- TCPDF
-- Git & GitHub
 
----
+## 🔒 Security Features
 
-## 📂 Project Structure
+- Password Hashing using `password_hash()`
+- Password Verification using `password_verify()`
+- Session-based Authentication
+- Protected Routes
 
-```text
-OnlineBankingSystem/
-│
-├── connection.php
-├── register.php
-├── login.php
-├── dashboard.php
-├── logout.php
-│
-├── account/
-├── transactions/
-├── admin/
-├── Css/
-├── Js/
-├── images/
-└── README.md
-```
+## 🚀 Setup Instructions
 
----
-
-## 🚀 Installation
-
-### 1. Clone Repository
+1. Clone the repository.
 
 ```bash
 git clone https://github.com/your-username/OnlineBankingSystem.git
 ```
 
-### 2. Move Project
-
-Place the project inside:
+2. Move the project folder to:
 
 ```text
 xampp/htdocs/
 ```
 
-### 3. Create Database
+3. Create a database named:
 
 ```text
 online_banking_system
 ```
 
-### 4. Start XAMPP
+4. Import the SQL table:
 
-- Apache
-- MySQL
-
-### 5. Run Application
-
-```text
-http://localhost/OnlineBankingSystem/
+```sql
+CREATE TABLE users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullName VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
----
+5. Start Apache and MySQL using XAMPP.
 
-## 📌 Modules
+6. Open the application:
 
-- Authentication Module
-- Dashboard Module
-- Account Management Module
-- Deposit Module
-- Withdraw Module
-- Transfer Module
-- Transaction History Module
-- Notification Module
-- Admin Module
+```text
+http://localhost/OnlineBankingSystem/register.php
+```
 
----
+## 📌 Module Branch
 
-## 🔮 Future Enhancements
+```text
+authentication_module
+```
 
-- Two-Factor Authentication (2FA)
-- QR Code Payments
-- Mobile Banking Features
-- Email Verification
-- Real-time Notifications
-- API Integration
-- AI-based Fraud Detection
+## 📈 Future Enhancements
 
----
-
-## 👨‍💻 Developed By
-
-**Nilusha Madhuwanthi**
-
-### Technologies
-PHP | MySQL | HTML | CSS | JavaScript
+- Dark / Light Mode
+- Bank Account Management
+- Deposit & Withdraw
+- Money Transfer
+- Transaction History
+- Admin Dashboard
+- Email Notifications
+- PDF Statements
 
 ---
-
-⭐ If you find this project useful, consider giving it a star on GitHub.
+Developed as part of the **Online Banking System** project using PHP and MySQL.
